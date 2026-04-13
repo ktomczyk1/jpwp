@@ -37,10 +37,7 @@ def search(node, value):
 def get_color(node):        # funkcja pomocnicza
     return "BLACK" if node is None else node.color
     
-def left_rotate(x):
-    if x.right is None:
-        return
-    
+def left_rotate(root, x):
     y = x.right
     x.right = y.left
 
@@ -50,7 +47,6 @@ def left_rotate(x):
     y.parent = x.parent
 
     if x.parent is None:
-        global root
         root = y
     elif x == x.parent.left:
         x.parent.left = y
@@ -60,10 +56,9 @@ def left_rotate(x):
     y.left = x
     x.parent = y
 
-def right_rotate(y):
-    if y.left is None:
-        return
-    
+    return root
+
+def right_rotate(root, y):
     x = y.left
     y.left = x.right
 
@@ -73,7 +68,6 @@ def right_rotate(y):
     x.parent = y.parent
 
     if y.parent is None:
-        global root
         root = x
     elif y == y.parent.right:
         y.parent.right = x
@@ -83,7 +77,9 @@ def right_rotate(y):
     x.right = y
     y.parent = x
 
-def fix_insert(node):
+    return root
+
+def fix_insert(root, node):
     while node != root and get_color(node.parent) == "RED":
         parent = node.parent
         grandparent = parent.parent
@@ -91,48 +87,41 @@ def fix_insert(node):
         if parent == grandparent.left:
             uncle = grandparent.right
 
-            # uncle RED → recoloring
             if get_color(uncle) == "RED":
                 parent.color = "BLACK"
                 uncle.color = "BLACK"
                 grandparent.color = "RED"
                 node = grandparent
-
             else:
-                # Left-Right
                 if node == parent.right:
-                    left_rotate(parent)
+                    root = left_rotate(root, parent)
                     node = parent
                     parent = node.parent
 
-                # Left-Left
-                right_rotate(grandparent)
+                root = right_rotate(root, grandparent)
                 parent.color = "BLACK"
                 grandparent.color = "RED"
 
         else:
             uncle = grandparent.left
 
-            # CASE 1 (mirror)
             if get_color(uncle) == "RED":
                 parent.color = "BLACK"
                 uncle.color = "BLACK"
                 grandparent.color = "RED"
                 node = grandparent
-
             else:
-                # CASE 2: Right-Left
                 if node == parent.left:
-                    right_rotate(parent)
+                    root = right_rotate(root, parent)
                     node = parent
                     parent = node.parent
 
-                # CASE 3: Right-Right
-                left_rotate(grandparent)
+                root = left_rotate(root, grandparent)
                 parent.color = "BLACK"
                 grandparent.color = "RED"
 
     root.color = "BLACK"
+    return root
 
 def insert(root, value):
     if root is None:
@@ -156,8 +145,7 @@ def insert(root, value):
     else:
         parent.right = new_node
 
-    fix_insert(new_node)
-    return root
+    return fix_insert(root, new_node)
 
 
 # korzeń - czarny

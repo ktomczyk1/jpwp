@@ -15,4 +15,4 @@ print("Kolejka po usunięciu:", queue)
 #która dodaje element na koniec kolejki.
 #Następnie utwórz funkcję 'dequeue(queue)', która usuwa i zwraca pierwszy element kolejki.
 #Użyj tych funkcji zamiast append() i pop(0).
-# Na samym końcu wypisz stan kolejki.
+#Na samym końcu wypisz stan kolejki.

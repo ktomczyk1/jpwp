@@ -1,20 +1,18 @@
 1. HashMap / HashSet
 Które stwierdzenia są prawdziwe?
 A. HashMap gwarantuje uporządkowanie elementów według klucza
-B. HashSet w Javie/Pythonie opiera się często na hash table
+B. Obie struktury są implementacjami konceptu HashTable
 C. HashSet nie pozwala na duplikaty
-D. HashMap pozwala przechowywać pary (klucz → wartość)
 E. HashMap i HashSet zawsze mają O(log n) dostęp
-	(B,C,D)
+	(B,C)
 
 2. Union-Find
-Które operacje/techniki są częścią optymalnej implementacji DSU?
-A. path compression
-B. union by rank / size
-C. BFS traversal
-D. DFS traversal
-E. amortyzowana analiza czasu operacji
-	(A,B,E)
+Które operacje/techniki są częścią optymalnej implementacji tej struktury?
+A. wykrywanie cykli
+B. grupowanie danych
+C. przeszukiwania w głąb / wszerz
+D. amortyzowana analiza czasu operacji
+	(A,B,D)
 
 3. Trie
 Które zastosowania pasują do Trie?
@@ -22,23 +20,22 @@ A. autocomplete w wyszukiwarkach
 B. wyszukiwanie najkrótszej ścieżki w grafie
 C. słowniki i spell-check
 D. przechowywanie prefiksów
-E. sortowanie liczb całkowitych
+E. sortowanie liczb
 	(A,C,D)
 
 4. Binary Heap
 Które stwierdzenia są prawdziwe?
 A. heap zawsze jest drzewem BST
-B. min-heap pozwala szybko znaleźć najmniejszy element
+B. Python domyślnie implementuje min-heap
 C. heap gwarantuje pełne sortowanie elementów
 D. operacje insert i pop mają O(log n)
 E. heap jest zawsze zbalansowany
-	(B,D,E)
+	(B,D)
 
 5. Red-Black Tree
 Które cechy są prawdziwe?
 A. każde wstawienie wymaga pełnego przebudowania drzewa
 B. wysokość drzewa jest O(log n)
-C. każdy węzeł jest czerwony lub czarny
-D. gwarantuje najgorszy przypadek O(log n) dla operacji
-E. jest zawsze idealnie symetryczne
-	(B,C,D)
+C. gwarantuje najgorszy przypadek O(log n) dla operacji
+D. jest zawsze idealnie symetryczne
+	(B,C)
