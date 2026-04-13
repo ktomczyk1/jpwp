@@ -32,7 +32,7 @@ B. min-heap pozwala szybko znaleźć najmniejszy element
 C. heap gwarantuje pełne sortowanie elementów
 D. operacje insert i pop mają O(log n)
 E. heap jest zawsze zbalansowany
-	(B,D)
+	(B,D,E)
 
 5. Red-Black Tree
 Które cechy są prawdziwe?
